@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/aiassist/db" VERSION="2024011900" COMMENT="XMLDB file for aiassist plugin">
+    <TABLES>
+        <TABLE NAME="aiassist" COMMENT="Main table for aiassist plugin">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Primary key"/>
+                <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="Course ID"/>
+                <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" COMMENT="Activity name"/>
+                <FIELD NAME="pdf" TYPE="char" LENGTH="255" NOTNULL="false" COMMENT="Path to uploaded PDF file"/>
+                <FIELD NAME="markdown" TYPE="text" NOTNULL="false" COMMENT="Markdown content"/>
+                <FIELD NAME="llminstructions" TYPE="text" NOTNULL="false" COMMENT="LLM-specific instructions"/>
+                <FIELD NAME="targetwordcount" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="300" COMMENT="Target words per chapter"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" COMMENT="Timestamp of creation"/>
+                <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" COMMENT="Timestamp of modification"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="course" TYPE="foreign" FIELDS="course" REFERENCES="course" REFFIELDS="id" REFTABLE="course" ONDELETE="cascade"/>
+            </KEYS>
+            <INDEXES>
+                <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+            </INDEXES>
+        </TABLE>
+    </TABLES>
+    <CAPABILITIES>
+        <CAPABILITY NAME="mod/aiassist:addinstance" CAPTYPE="write" RISK="none"/>
+        <CAPABILITY NAME="mod/aiassist:view" CAPTYPE="read" RISK="none"/>
+    </CAPABILITIES>
+</XMLDB>

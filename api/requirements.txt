@@ -1,0 +1,7 @@
+mistralai~=1.5.1
+python-dotenv~=1.0.1
+tqdm~=4.67.1
+Flask~=3.1.0
+waitress~=3.0.0
+Werkzeug~=3.0.1
+openai~=1.12.0
