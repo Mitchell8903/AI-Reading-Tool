@@ -48,10 +48,7 @@ Students can click on paragraphs, images, or other components and receive instan
 
 1. **Package the plugin**
 
-   ```bash
-   cd moodle-plugin              # folder containing `aiassist`
-   zip -r aiassist.zip aiassist
-   ```
+   - Create a .zip of the `aiassist` directory.
 
 2. **Install in Moodle**
 
